@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: "Buku Ajar Internet of Things (IoT) berbasis ESP32 — Repositori Companion"
+message: "Jika Anda menggunakan materi ini, mohon mengutip buku dan repositori berikut."
+type: software
+authors:
+  - family-names: "[NAMA BELAKANG]"
+    given-names: "[NAMA DEPAN]"
+    affiliation: "[INSTITUSI]"
+version: "0.1.0"
+date-released: "2026-01-01"
+license: MIT
+repository-code: "https://github.com/[USERNAME]/buku-ajar-iot-esp32"
+keywords:
+  - Internet of Things
+  - IoT
+  - ESP32
+  - buku ajar
+  - pendidikan tinggi

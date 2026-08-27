@@ -1,0 +1,11 @@
+; Contoh konfigurasi PlatformIO untuk ESP32
+; Salin menjadi platformio.ini di folder proyek Anda, sesuaikan library.
+
+[env:esp32dev]
+platform = espressif32
+board = esp32dev
+framework = arduino
+monitor_speed = 115200
+lib_deps =
+    ; contoh: adafruit/DHT sensor library
+    ; contoh: knolleary/PubSubClient
