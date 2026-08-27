@@ -2,8 +2,7 @@
 
 Repositori ini adalah materi daring pendamping (companion) untuk **Buku Ajar Internet of Things (IoT)**
 yang disusun selaras dengan Rencana Pembelajaran Semester (RPS) mata kuliah IoT (3 SKS).
-Buku dijaga ringkas (100–200 halaman) agar terjangkau; kode program lengkap, berkas rangkaian,
-panduan instalasi rinci, dataset, bank soal, dan templat ditempatkan di sini.
+Kode program lengkap, berkas rangkaian, panduan instalasi rinci, dataset, bank soal, dan templat ditempatkan di sini.
 
 > Platform praktik utama: **ESP32** + sensor + aktuator + cloud. Praktik dapat dikerjakan pada
 > perangkat keras nyata maupun simulator **Wokwi**.
@@ -81,4 +80,4 @@ Lihat [`CITATION.cff`](CITATION.cff), atau gunakan format yang tercantum di hala
 
 ## Kontak
 
-Penulis/pengampu: [NAMA] — [EMAIL/INSTITUSI]. Laporkan kesalahan melalui Issues atau [`docs/erata.md`](docs/erata.md).
+Penulis/pengampu: [Hendriyawan Achmad, PhD] — [hendriyawanachmad@uty.ac.id]. Laporkan kesalahan melalui Issues atau [`docs/erata.md`](docs/erata.md).
