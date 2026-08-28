@@ -1,21 +1,25 @@
-# Bab 2 — Perangkat Keras IoT: ESP32, Sensor, dan Aktuator
+# Bab 2 - Perangkat Keras IoT: ESP32, Sensor, dan Aktuator
 
-- **Bab pada buku:** 02-perangkat-keras
-- **Minggu (RPS):** 3–4
+- **Bab pada buku:** 2
+- **Minggu (RPS):** 3-4
 - **CPMK:** CPMK2
 
 ## Praktik pada bab ini
-Setup toolchain, uji 'Blink', dan pembacaan sensor DHT22 serta LDR.
+Menyiapkan lingkungan pengembangan, lalu membaca sensor DHT22 (suhu & kelembaban)
+dan LDR (cahaya) pada ESP32. Dapat dikerjakan pada perangkat keras nyata maupun Wokwi.
 
 ## Isi folder
-- `kode/` — program uji perangkat dan pembacaan sensor (mis. blink.ino, baca_sensor.ino).
-- `rangkaian/` — berkas/gambar rangkaian dan proyek Wokwi (`diagram.json`).
-- `latihan/` — berkas pendukung latihan dan self-assessment.
+- `kode/blink.ino` - uji toolchain (kedip LED bawaan).
+- `kode/baca_dht_ldr.ino` - kode lengkap pembacaan DHT22 + LDR.
+- `rangkaian/pengawatan.md` - tabel pengawatan.
+- `rangkaian/diagram.json` - berkas rangkaian untuk Wokwi.
+- `latihan/lembar-kerja.md` - lembar kerja praktik.
+- `kunci-jawaban-bab-02.md` - kunci pilihan ganda & jawaban lengkap esai.
+
+## Library yang diperlukan
+- DHT sensor library (Adafruit) beserta dependensinya (Adafruit Unified Sensor).
 
 ## Cara menjalankan
-1. Buka berkas pada `kode/` menggunakan Arduino IDE / PlatformIO / Wokwi.
-2. Salin `secrets.h.contoh` menjadi `secrets.h` dan isi kredensial bila diperlukan.
-3. Sesuaikan pin sesuai rangkaian, unggah ke ESP32, amati Serial Monitor.
-
-## Prasyarat
-Selesaikan instalasi pada [`../docs/instalasi.md`](../docs/instalasi.md).
+1. Pasang toolchain (lihat `../docs/instalasi.md`) dan library DHT.
+2. Rangkai sesuai `rangkaian/pengawatan.md` (DHT22 -> GPIO4, LDR AO -> GPIO34).
+3. Unggah `kode/baca_dht_ldr.ino`, buka Serial Monitor pada 115200.
