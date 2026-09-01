@@ -3,13 +3,13 @@ title: "Buku Ajar Internet of Things (IoT) berbasis ESP32 — Repositori Compani
 message: "Jika Anda menggunakan materi ini, mohon mengutip buku dan repositori berikut."
 type: software
 authors:
-  - family-names: "[NAMA BELAKANG]"
-    given-names: "[NAMA DEPAN]"
-    affiliation: "[INSTITUSI]"
+  - family-names: "[Achmad]"
+    given-names: "[Hendriyawan]"
+    affiliation: "[UTY]"
 version: "0.1.0"
 date-released: "2026-01-01"
 license: MIT
-repository-code: "https://github.com/[USERNAME]/buku-ajar-iot-esp32"
+repository-code: "https://github.com/hendriyawanachmad-uty/buku-ajar-iot-esp32"
 keywords:
   - Internet of Things
   - IoT
