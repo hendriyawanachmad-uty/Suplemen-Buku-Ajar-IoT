@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "author": "Buku Ajar IoT",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -140, "left": 220, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "rel1", "top": 40, "left": 250, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 150, "left": 220, "attrs": { "color": "red" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": 150, "left": 160, "attrs": { "value": "220" } },
+    { "type": "wokwi-pushbutton", "id": "btn1", "top": 240, "left": 220, "attrs": { "color": "green" } }
+  ],
+  "connections": [
+    [ "dht1:VCC", "esp:3V3", "red", [] ],
+    [ "dht1:GND", "esp:GND.1", "black", [] ],
+    [ "dht1:SDA", "esp:D4", "green", [] ],
+    [ "rel1:IN", "esp:D26", "orange", [] ],
+    [ "rel1:GND", "esp:GND.2", "black", [] ],
+    [ "esp:D27", "r1:1", "purple", [] ],
+    [ "r1:2", "led1:A", "purple", [] ],
+    [ "led1:C", "esp:GND.2", "black", [] ],
+    [ "btn1:1.l", "esp:D15", "blue", [] ],
+    [ "btn1:2.l", "esp:GND.1", "black", [] ]
+  ]
+}
