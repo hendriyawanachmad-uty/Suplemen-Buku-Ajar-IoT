@@ -1,21 +1,28 @@
-# Bab 7 — Edge/Fog Computing dan Analitik Data IoT
+# Bab 7 - Edge/Fog Computing dan Analitik Data IoT
 
-- **Bab pada buku:** 07-edge-analitik
+- **Bab pada buku:** 7
 - **Minggu (RPS):** 12
 - **CPMK:** CPMK5
 
 ## Praktik pada bab ini
-Menerapkan filtering/agregasi dan deteksi ambang di sisi ESP32 sebelum mengirim ke cloud.
+Menerapkan agregasi, penyaringan ambang, dan deteksi anomali langsung pada
+ESP32, lalu mengukur seberapa besar pengurangan data yang dihasilkan.
 
 ## Isi folder
-- `kode/` — program pemrosesan data di edge (mis. edge_filtering.ino).
-- `rangkaian/` — berkas/gambar rangkaian dan proyek Wokwi (`diagram.json`).
-- `latihan/` — berkas pendukung latihan dan self-assessment.
+- `kode/edge_filtering.ino` - agregasi + penyaringan ambang + penghitung hemat.
+- `kode/deteksi_anomali.ino` - implementasi Algoritma 7.1.
+- `rangkaian/pengawatan.md` - tabel pengawatan.
+- `latihan/lembar-kerja.md` - lembar kerja beserta tabel pembanding.
+- `latihan/panduan-tflite-micro.md` - nama pustaka TFLite Micro yang berlaku
+  saat ini beserta alur kerja lengkapnya (sengaja di repositori agar tidak
+  cepat usang).
+- `kunci-jawaban-bab-07.md` - kunci pilihan ganda & jawaban lengkap esai.
 
-## Cara menjalankan
-1. Buka berkas pada `kode/` menggunakan Arduino IDE / PlatformIO / Wokwi.
-2. Salin `secrets.h.contoh` menjadi `secrets.h` dan isi kredensial bila diperlukan.
-3. Sesuaikan pin sesuai rangkaian, unggah ke ESP32, amati Serial Monitor.
+## Catatan
+Bab ini tidak memerlukan rangkaian baru. Pengawatan sama seperti Bab 2
+(DHT22 ke GPIO4), karena yang dipelajari adalah pengolahan datanya, bukan
+perangkat kerasnya.
 
-## Prasyarat
-Selesaikan instalasi pada [`../docs/instalasi.md`](../docs/instalasi.md).
+Kedua program dapat berjalan tanpa jaringan; hasilnya diamati melalui
+Serial Monitor. Bila ingin mengukur penghematan data sungguhan, gabungkan
+dengan kode pengiriman dari Bab 5 atau Bab 6.
