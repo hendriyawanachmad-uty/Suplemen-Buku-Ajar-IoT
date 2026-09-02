@@ -1,21 +1,45 @@
-# Bab 6 — Integrasi Cloud, Dashboard, dan Visualisasi Data
+# Bab 6 - Integrasi Cloud, Dashboard, dan Visualisasi Data
 
-- **Bab pada buku:** 06-cloud-dashboard
-- **Minggu (RPS):** 10–11
+- **Bab pada buku:** 6
+- **Minggu (RPS):** 10-11
 - **CPMK:** CPMK5
 
 ## Praktik pada bab ini
-Mengirim telemetri ke platform cloud dan membangun dashboard pemantauan serta kendali jarak jauh.
+Menghubungkan ESP32 ke platform cloud IoT, menampilkan data pada dashboard,
+menambahkan kendali jarak jauh (downlink), dan mengonfigurasi notifikasi.
 
 ## Isi folder
-- `kode/` — program pengiriman data ke cloud dan konfigurasi dashboard (mis. kirim_cloud.ino).
-- `rangkaian/` — berkas/gambar rangkaian dan proyek Wokwi (`diagram.json`).
-- `latihan/` — berkas pendukung latihan dan self-assessment.
+- `kode/kirim_cloud_http.ino` - kirim telemetri via HTTP (paling sederhana).
+- `kode/kirim_cloud_mqtt.ino` - kirim telemetri via MQTT + terima perintah.
+- `kode/secrets.h.contoh` - templat kredensial.
+- `rangkaian/pengawatan.md` - tabel pengawatan.
+- `rangkaian/diagram.json` - berkas rangkaian untuk Wokwi.
+- `latihan/panduan-thingspeak.md` - langkah membuat akun dan dashboard.
+- `latihan/lembar-kerja.md` - lembar kerja praktik.
+- `kunci-jawaban-bab-06.md` - kunci pilihan ganda & jawaban lengkap esai.
+
+## Library yang diperlukan
+- `PubSubClient` (untuk versi MQTT).
+- `DHT sensor library` (Adafruit) + `Adafruit Unified Sensor`.
+- `HTTPClient` sudah termasuk dalam inti Arduino-ESP32.
+
+## PENTING
+1. **Jaga kerahasiaan kredensial.** Kunci API atau token yang bocor
+   memungkinkan orang lain mengirim data palsu atas nama perangkat Anda.
+   Bila terlanjur tersebar, **batalkan token itu dan terbitkan yang baru**;
+   menghapus riwayat unggahan saja tidak cukup.
+2. **Panggil `http.end()`** setelah setiap pengiriman HTTP. Bila terlupa,
+   perangkat dapat kehabisan memori lalu memulai ulang sendiri setelah
+   beberapa ratus pengiriman. Gejalanya mirip kerusakan perangkat keras.
+3. **Perhatikan batas pengiriman.** Platform versi gratis membatasi selang
+   waktu minimum antar pengiriman. Mengirim terlalu cepat membuat sebagian
+   data ditolak diam-diam.
+4. **Sediakan aturan lokal.** Perangkat harus tetap bekerja ketika jaringan
+   terputus; kendali cloud diposisikan sebagai pelengkap.
 
 ## Cara menjalankan
-1. Buka berkas pada `kode/` menggunakan Arduino IDE / PlatformIO / Wokwi.
-2. Salin `secrets.h.contoh` menjadi `secrets.h` dan isi kredensial bila diperlukan.
-3. Sesuaikan pin sesuai rangkaian, unggah ke ESP32, amati Serial Monitor.
-
-## Prasyarat
-Selesaikan instalasi pada [`../docs/instalasi.md`](../docs/instalasi.md).
+1. Buat akun platform, daftarkan perangkat, catat kredensial.
+2. Salin `kode/secrets.h.contoh` menjadi `kode/secrets.h`, isi kredensial.
+3. Rangkai DHT22 ke GPIO4 dan LED/relai ke GPIO26.
+4. Unggah salah satu berkas kode, buka Serial Monitor pada 115200.
+5. Susun dashboard sesuai `latihan/panduan-thingspeak.md`.
