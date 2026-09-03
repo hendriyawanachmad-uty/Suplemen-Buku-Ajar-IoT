@@ -1,21 +1,33 @@
-# Bab 8 — Keamanan dan Privasi Sistem IoT
+# Bab 8 - Keamanan dan Privasi Sistem IoT
 
-- **Bab pada buku:** 08-keamanan
+- **Bab pada buku:** 8
 - **Minggu (RPS):** 13
 - **CPMK:** CPMK6
 
 ## Praktik pada bab ini
-Mengamankan komunikasi (MQTT over TLS atau autentikasi token) dan menganalisis dampaknya.
+Membandingkan komunikasi MQTT tanpa dan dengan TLS, lalu memperbaiki
+pengelolaan kredensial pada sistem yang telah dibangun.
 
 ## Isi folder
-- `kode/` — program komunikasi aman (mis. mqtt_tls.ino). Jangan commit sertifikat/kredensial asli.
-- `rangkaian/` — berkas/gambar rangkaian dan proyek Wokwi (`diagram.json`).
-- `latihan/` — berkas pendukung latihan dan self-assessment.
+- `kode/mqtt_tls.ino` - komunikasi MQTT terenkripsi dengan pemeriksaan sertifikat.
+- `kode/secrets.h.contoh` - templat kredensial.
+- `latihan/panduan-sertifikat.md` - cara memperoleh dan menyematkan sertifikat.
+- `latihan/daftar-periksa-keamanan.md` - daftar periksa yang dapat dicetak.
+- `latihan/lembar-kerja.md` - lembar kerja praktik.
+- `kunci-jawaban-bab-08.md` - kunci pilihan ganda & jawaban lengkap esai.
+
+## Catatan penting
+
+**Materi ini bersifat defensif.** Isinya adalah cara melindungi sistem milik
+sendiri. Menguji keamanan sistem yang bukan milik Anda, tanpa izin tertulis
+dari pemiliknya, merupakan pelanggaran hukum di banyak negara termasuk
+Indonesia. Lakukan seluruh percobaan hanya pada perangkat dan akun Anda sendiri.
+
+**Rangkaian.** Bab ini tidak menambah perangkat keras. Pengawatan sama seperti
+Bab 5 (DHT22 ke GPIO4); yang berubah adalah cara data diamankan.
 
 ## Cara menjalankan
-1. Buka berkas pada `kode/` menggunakan Arduino IDE / PlatformIO / Wokwi.
-2. Salin `secrets.h.contoh` menjadi `secrets.h` dan isi kredensial bila diperlukan.
-3. Sesuaikan pin sesuai rangkaian, unggah ke ESP32, amati Serial Monitor.
-
-## Prasyarat
-Selesaikan instalasi pada [`../docs/instalasi.md`](../docs/instalasi.md).
+1. Salin `kode/secrets.h.contoh` menjadi `kode/secrets.h`, isi kredensial.
+2. Ikuti `latihan/panduan-sertifikat.md` untuk memperoleh sertifikat broker.
+3. Unggah `kode/mqtt_tls.ino`, buka Serial Monitor pada 115200.
+4. Bandingkan hasil pengamatan dengan program tanpa TLS dari Bab 5.
