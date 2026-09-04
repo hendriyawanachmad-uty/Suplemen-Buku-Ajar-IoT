@@ -2,7 +2,8 @@
 
 Repositori ini adalah materi daring pendamping (companion) untuk **Buku Ajar Internet of Things (IoT)**
 yang disusun selaras dengan Rencana Pembelajaran Semester (RPS) mata kuliah IoT (3 SKS).
-Kode program lengkap, berkas rangkaian, panduan instalasi rinci, dataset, bank soal, dan templat ditempatkan di sini.
+Buku dijaga ringkas (100–200 halaman) agar terjangkau; kode program lengkap, berkas rangkaian,
+panduan instalasi rinci, dataset, bank soal, dan templat ditempatkan di sini.
 
 > Platform praktik utama: **ESP32** + sensor + aktuator + cloud. Praktik dapat dikerjakan pada
 > perangkat keras nyata maupun simulator **Wokwi**.
@@ -26,11 +27,12 @@ Kode program lengkap, berkas rangkaian, panduan instalasi rinci, dataset, bank s
 | 3 | Pemrograman ESP32: Akuisisi & Kendali | 5–6 | CPMK4 | `bab-03-pemrograman-esp32/` |
 | 4 | Konektivitas dan Jaringan IoT | 7 | CPMK3 | `bab-04-konektivitas/` |
 | 5 | Protokol Komunikasi IoT | 9 | CPMK3 | `bab-05-protokol-komunikasi/` |
-| 6 | Integrasi Cloud, Dashboard & Visualisasi | 10–11 | CPMK5 | `bab-06-cloud-dashboard/` |
-| 7 | Edge/Fog Computing & Analitik Data | 12 | CPMK5 | `bab-07-edge-analitik/` |
-| 8 | Keamanan dan Privasi Sistem IoT | 13 | CPMK6 | `bab-08-keamanan/` |
-| 9 | Penerapan IoT pada Domain Nyata | 14 | CPMK1, CPMK7 | `bab-09-penerapan-domain/` |
-| 10 | Perancangan Proyek IoT End-to-End | 15 | CPMK7 | `bab-10-proyek-end-to-end/` |
+| 6 | Integrasi Platform Cloud IoT | 10 | CPMK5 | `bab-06-platform-cloud/` |
+| 7 | Basis Data dan Visualisasi Data IoT | 11 | CPMK5 | `bab-07-basisdata/` |
+| 8 | Edge/Fog Computing & Analitik Data | 12 | CPMK5 | `bab-08-edge-analitik/` |
+| 9 | Keamanan dan Privasi Sistem IoT | 13 | CPMK6 | `bab-09-keamanan/` |
+| 10 | Penerapan IoT pada Domain Nyata | 14 | CPMK1, CPMK7 | `bab-10-penerapan-domain/` |
+| 11 | Perancangan Proyek IoT End-to-End | 15 | CPMK7 | `bab-11-proyek-end-to-end/` |
 
 _Minggu 8 = UTS, Minggu 16 = UAS (tidak memiliki folder bab)._
 
@@ -56,12 +58,34 @@ buku-ajar-iot-esp32/
 │   └── platformio.ini.contoh
 ├── bank-soal/
 │   └── README.md
-└── bab-01 … bab-10/
+└── bab-01 … bab-11/
     ├── README.md
     ├── kode/
     ├── rangkaian/
     └── latihan/
 ```
+
+## Riwayat penataan bab
+
+Sejak Mei 2026 struktur buku berubah dari 10 menjadi 11 bab. Bab 6 yang semula
+mencakup cloud sekaligus dashboard dipecah menjadi dua: **Bab 6** untuk
+integrasi platform cloud (minggu 10) dan **Bab 7** untuk basis data dan
+visualisasi (minggu 11). Akibatnya bab-bab berikutnya bergeser satu nomor.
+
+Bila Anda memiliki pranala lama, gunakan padanan berikut:
+
+| Nama folder lama | Nama folder sekarang |
+|------------------|----------------------|
+| `bab-06-cloud-dashboard/` | `bab-06-platform-cloud/` |
+| (belum ada) | `bab-07-basisdata/` |
+| `bab-07-edge-analitik/` | `bab-08-edge-analitik/` |
+| `bab-08-keamanan/` | `bab-09-keamanan/` |
+| `bab-09-penerapan-domain/` | `bab-10-penerapan-domain/` |
+| `bab-10-proyek-end-to-end/` | `bab-11-proyek-end-to-end/` |
+
+Kode QR pada buku cetak menunjuk ke commit tertentu, sehingga QR pada edisi
+lama tetap mengarah ke struktur lama. Hal ini disengaja agar buku yang sudah
+dicetak tetap cocok dengan kodenya.
 
 ## Versi dan edisi buku
 
@@ -80,4 +104,4 @@ Lihat [`CITATION.cff`](CITATION.cff), atau gunakan format yang tercantum di hala
 
 ## Kontak
 
-Penulis/pengampu: [Hendriyawan Achmad, PhD] — [hendriyawanachmad@uty.ac.id]. Laporkan kesalahan melalui Issues atau [`docs/erata.md`](docs/erata.md).
+Penulis/pengampu: [NAMA] — [EMAIL/INSTITUSI]. Laporkan kesalahan melalui Issues atau [`docs/erata.md`](docs/erata.md).

@@ -1,0 +1,44 @@
+# Buku Ajar IoT berbasis ESP32 - Repositori Suplemen
+# Bab 7: contoh kueri InfluxDB
+
+# ============================================================
+# InfluxQL (gaya lama, mirip SQL, lebih mudah bagi pemula)
+# ============================================================
+
+# 1. Data mentah satu jam terakhir
+SELECT "suhu" FROM "suhu_ruang"
+WHERE "ruang" = '101' AND time > now() - 1h
+
+# 2. Rata-rata per jam selama sehari, dikelompokkan per ruang
+SELECT MEAN("suhu")
+FROM "suhu_ruang"
+WHERE "gedung" = 'A' AND time > now() - 1d
+GROUP BY time(1h), "ruang"
+
+# 3. Nilai tertinggi dan terendah per hari selama sebulan
+SELECT MAX("suhu"), MIN("suhu")
+FROM "suhu_ruang"
+WHERE time > now() - 30d
+GROUP BY time(1d), "ruang"
+
+# ============================================================
+# Flux (gaya baru pada InfluxDB 2.x)
+# ============================================================
+
+from(bucket: "iot")
+  |> range(start: -1d)
+  |> filter(fn: (r) => r._measurement == "suhu_ruang")
+  |> filter(fn: (r) => r.gedung == "A")
+  |> filter(fn: (r) => r._field == "suhu")
+  |> aggregateWindow(every: 1h, fn: mean)
+
+# ============================================================
+# RETENSI: dihapus otomatis oleh basis data
+# ============================================================
+# Pada InfluxDB, kebijakan retensi ditetapkan pada bucket, sehingga data
+# yang usianya melewati batas dihapus SENDIRI tanpa program tambahan.
+# Inilah salah satu keunggulan basis data time-series dibandingkan
+# basis data relasional, yang menuntut kita menjadwalkan penghapusan sendiri.
+#
+# Contoh: bucket "iot" dengan retensi 7 hari untuk data mentah,
+#         bucket "iot_ringkas" dengan retensi 2 tahun untuk hasil agregasi.

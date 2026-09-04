@@ -1,0 +1,32 @@
+# Buku Ajar IoT berbasis ESP32 - Repositori Suplemen
+# Bab 7: menulis data ke InfluxDB dengan line protocol
+#
+# Bentuk umum:
+#   measurement,tag=nilai,tag=nilai field=nilai,field=nilai timestamp
+#
+#   measurement : seperti nama tabel
+#   tag         : untuk MENYARING, diindeks        -> teks, jumlah terbatas
+#   field       : nilai yang DIUKUR, tidak diindeks -> angka
+#   timestamp   : opsional; bila kosong diisi waktu server
+
+# ---------- BENAR ----------
+suhu_ruang,gedung=A,ruang=101,perangkat=esp32-01 suhu=28.4,kelembaban=61.0
+suhu_ruang,gedung=A,ruang=102,perangkat=esp32-02 suhu=29.1,kelembaban=58.5
+suhu_ruang,gedung=B,ruang=205,perangkat=esp32-03 suhu=27.8,kelembaban=63.2
+
+# Tag  : gedung, ruang, perangkat  (dipakai untuk menyaring dan mengelompokkan)
+# Field: suhu, kelembaban          (nilai yang dihitung rata-ratanya)
+
+# ---------- SALAH: jangan ditiru ----------
+# suhu_ruang,gedung=A,suhu=28.4 kelembaban=61.0
+#
+# Kekeliruannya: nilai suhu ditempatkan sebagai TAG.
+# Akibatnya setiap nilai suhu yang berbeda (28.4, 28.5, 28.6, ...) membentuk
+# deret baru. Dalam sehari dapat muncul ribuan deret untuk satu sensor saja,
+# sehingga memori basis data membengkak dan kueri menjadi lambat.
+# Persoalan ini dikenal sebagai "high cardinality".
+
+# ---------- Mengirim dari baris perintah ----------
+# curl -i -XPOST "http://localhost:8086/api/v2/write?bucket=iot&precision=s" \
+#   --header "Authorization: Token TOKEN_ANDA" \
+#   --data-raw "suhu_ruang,gedung=A,ruang=101 suhu=28.4"
