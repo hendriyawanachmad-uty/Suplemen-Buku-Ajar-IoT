@@ -64,12 +64,6 @@ buku-ajar-iot-esp32/
     └── latihan/
 ```
 
-## Versi dan edisi buku
-
-Rilis repositori (tag Git) ditautkan ke edisi buku. Mahasiswa yang memegang buku edisi tertentu
-sebaiknya menggunakan kode dari tag rilis yang sesuai, bukan dari branch pengembangan,
-agar kode cocok dengan yang tercetak. Lihat [`CHANGELOG.md`](CHANGELOG.md).
-
 ## Lisensi
 
 - **Kode program** (folder `kode/`, berkas `.ino`, `.py`, dsb.): Lisensi **MIT** (lihat [`LICENSE`](LICENSE)).
