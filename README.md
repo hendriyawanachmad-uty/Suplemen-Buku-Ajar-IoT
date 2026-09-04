@@ -2,8 +2,7 @@
 
 Repositori ini adalah materi daring pendamping (companion) untuk **Buku Ajar Internet of Things (IoT)**
 yang disusun selaras dengan Rencana Pembelajaran Semester (RPS) mata kuliah IoT (3 SKS).
-Buku dijaga ringkas (100–200 halaman) agar terjangkau; kode program lengkap, berkas rangkaian,
-panduan instalasi rinci, dataset, bank soal, dan templat ditempatkan di sini.
+Kode program lengkap, berkas rangkaian, panduan instalasi rinci, dataset, bank soal, dan templat ditempatkan di sini.
 
 > Platform praktik utama: **ESP32** + sensor + aktuator + cloud. Praktik dapat dikerjakan pada
 > perangkat keras nyata maupun simulator **Wokwi**.
@@ -64,28 +63,6 @@ buku-ajar-iot-esp32/
     ├── rangkaian/
     └── latihan/
 ```
-
-## Riwayat penataan bab
-
-Sejak Mei 2026 struktur buku berubah dari 10 menjadi 11 bab. Bab 6 yang semula
-mencakup cloud sekaligus dashboard dipecah menjadi dua: **Bab 6** untuk
-integrasi platform cloud (minggu 10) dan **Bab 7** untuk basis data dan
-visualisasi (minggu 11). Akibatnya bab-bab berikutnya bergeser satu nomor.
-
-Bila Anda memiliki pranala lama, gunakan padanan berikut:
-
-| Nama folder lama | Nama folder sekarang |
-|------------------|----------------------|
-| `bab-06-cloud-dashboard/` | `bab-06-platform-cloud/` |
-| (belum ada) | `bab-07-basisdata/` |
-| `bab-07-edge-analitik/` | `bab-08-edge-analitik/` |
-| `bab-08-keamanan/` | `bab-09-keamanan/` |
-| `bab-09-penerapan-domain/` | `bab-10-penerapan-domain/` |
-| `bab-10-proyek-end-to-end/` | `bab-11-proyek-end-to-end/` |
-
-Kode QR pada buku cetak menunjuk ke commit tertentu, sehingga QR pada edisi
-lama tetap mengarah ke struktur lama. Hal ini disengaja agar buku yang sudah
-dicetak tetap cocok dengan kodenya.
 
 ## Versi dan edisi buku
 
