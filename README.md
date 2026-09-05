@@ -41,7 +41,6 @@ _Minggu 8 = UTS, Minggu 16 = UAS (tidak memiliki folder bab)._
 buku-ajar-iot-esp32/
 ├── README.md
 ├── LICENSE                     # MIT untuk kode; materi non-kode CC BY 4.0 (lihat README)
-├── CHANGELOG.md                # versi repositori, ditautkan ke edisi buku
 ├── CITATION.cff                # cara mengutip
 ├── CONTRIBUTING.md
 ├── .gitignore
